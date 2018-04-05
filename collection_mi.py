@@ -28,8 +28,8 @@ class MI_Train:
         for sent in sentences:
             words_all.extend(sent)
         word_dict = {item[0]:item[1] for item in collections.Counter(words_all).most_common()}
-
         return word_dict, len(words_all)
+
     #读取训练语料
     def build_cowords(self, sentences):
         train_data = list()
@@ -44,7 +44,6 @@ class MI_Train:
                 else:
                     right = sent[index+1: index + self.window_size + 1]
                 data = left + right + [sent[index]]
-
                 if '' in data:
                     data.remove('')
                 train_data.append(data)
@@ -122,6 +121,3 @@ def test():
 
 if __name__=='__main__':
     test()
-
-
-
